@@ -10,6 +10,10 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
+#set (CMAKE_PREFIX_PATH "C:/Qt1/5.15.2/msvc2019_64/lib/cmake/Qt5" )
+
+
+
 find_package(Qt5 COMPONENTS Gui Core Widgets REQUIRED)
 
 add_subdirectory(lib-ffmpeg)
