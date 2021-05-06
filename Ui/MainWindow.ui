@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>790</width>
     <height>600</height>
    </rect>
   </property>
@@ -22,7 +22,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>790</width>
      <height>26</height>
     </rect>
    </property>
@@ -49,7 +49,7 @@
     <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
    </property>
    <attribute name="dockWidgetArea">
-    <number>1</number>
+    <number>8</number>
    </attribute>
    <widget class="SourceWidget" name="sourceWidget">
     <property name="minimumSize">
@@ -65,9 +65,25 @@
     <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
    </property>
    <attribute name="dockWidgetArea">
-    <number>2</number>
+    <number>8</number>
    </attribute>
    <widget class="AudioMixerWidget" name="audioMixerWidget">
+    <property name="minimumSize">
+     <size>
+      <width>100</width>
+      <height>200</height>
+     </size>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="controlDockWidget">
+   <property name="features">
+    <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>8</number>
+   </attribute>
+   <widget class="ControlWidget" name="controlWidget">
     <property name="minimumSize">
      <size>
       <width>100</width>
@@ -94,6 +110,12 @@
    <class>AudioMixerWidget</class>
    <extends>QWidget</extends>
    <header location="global">DockWidget/AudioMixerWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ControlWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">DockWidget/ControlWidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

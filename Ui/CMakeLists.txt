@@ -32,13 +32,15 @@ set(Ui_SOURCES
     DockWidget/SceneWidget.cpp
     DockWidget/SourceWidget.cpp
     DockWidget/AudioMixerWidget.cpp
+    DockWidget/Controlwidget.cpp
    )
 
 set(Ui_HEADERS
     MainWindow.h
     DockWidget/SceneWidget.h
     DockWidget/SourceWidget.h
-    Dockwidget/AudioMixerWidget.cpp
+    DockWidget/AudioMixerWidget.h
+    DockWidget/ControlWidget.h
     )
 
 set(Ui_UI

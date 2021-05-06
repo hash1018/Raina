@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->sceneDockWidget->setWindowTitle("Scene");
     ui->sourceDockWidget->setWindowTitle("Source");
     ui->audioMixerDockWidget->setWindowTitle("Audio Mixer");
-    
+    ui->controlDockWidget->setWindowTitle("Control");
 }
 
 MainWindow::~MainWindow() {
