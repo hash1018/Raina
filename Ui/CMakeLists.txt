@@ -27,13 +27,18 @@ else()
 endif()
 
 
-
 set(Ui_SOURCES
     MainWindow.cpp
+    DockWidget/SceneWidget.cpp
+    DockWidget/SourceWidget.cpp
+    DockWidget/AudioMixerWidget.cpp
    )
 
 set(Ui_HEADERS
     MainWindow.h
+    DockWidget/SceneWidget.h
+    DockWidget/SourceWidget.h
+    Dockwidget/AudioMixerWidget.cpp
     )
 
 set(Ui_UI

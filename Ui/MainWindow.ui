@@ -13,10 +13,90 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="dockOptions">
+   <set>QMainWindow::AllowNestedDocks|QMainWindow::AnimatedDocks</set>
+  </property>
   <widget class="QWidget" name="centralwidget"/>
-  <widget class="QMenuBar" name="menubar"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QDockWidget" name="sceneDockWidget">
+   <property name="features">
+    <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>8</number>
+   </attribute>
+   <widget class="SceneWidget" name="sceneWidget">
+    <property name="minimumSize">
+     <size>
+      <width>100</width>
+      <height>200</height>
+     </size>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="sourceDockWidget">
+   <property name="features">
+    <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="SourceWidget" name="sourceWidget">
+    <property name="minimumSize">
+     <size>
+      <width>100</width>
+      <height>200</height>
+     </size>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="audioMixerDockWidget">
+   <property name="features">
+    <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="AudioMixerWidget" name="audioMixerWidget">
+    <property name="minimumSize">
+     <size>
+      <width>100</width>
+      <height>200</height>
+     </size>
+    </property>
+   </widget>
+  </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SceneWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">DockWidget/SceneWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>SourceWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">DockWidget/SourceWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>AudioMixerWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">DockWidget/AudioMixerWidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
