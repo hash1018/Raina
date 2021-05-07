@@ -2,6 +2,8 @@
 #include "MainWindow.h"
 #include "./ui_MainWindow.h"
 
+#include "../Base/LanguageManager.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow) {
@@ -9,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->setupUi(this);
 
-    ui->sceneDockWidget->setWindowTitle("Scene");
+    ui->sceneDockWidget->setWindowTitle(getLanUiValue("Menu/Video"));
     ui->sourceDockWidget->setWindowTitle("Source");
     ui->audioMixerDockWidget->setWindowTitle("Audio Mixer");
     ui->controlDockWidget->setWindowTitle("Control");
