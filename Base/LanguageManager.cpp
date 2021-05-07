@@ -52,11 +52,11 @@ QString LanguageManager::getValue(const Type& type, const QString& key) {
 
 	if (this->settings == nullptr) {
 
-		QString filePath = QDir::currentPath() + "/Language/" + this->convertDirectoryName(this->language) +
+        QString filePath = QDir::currentPath() + "/lan/" + this->convertDirectoryName(this->language) +
 			"/" + this->convertFileName(type);
 
 		if (!QFile(filePath).exists())
-			Q_ASSERT_X(false, "ShLanguageManager::ShLanguageManager", "invalid filePath");
+            Q_ASSERT_X(false, "LanguageManager::LanguageManager", "invalid filePath");
 
 		this->settings = new QSettings(filePath, QSettings::IniFormat);
 		this->settings->setIniCodec("UTF-8");
