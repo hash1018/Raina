@@ -1,14 +1,17 @@
 
 #include "ControlWidget.h"
 #include <qpainter.h>
+#include <./ui_ControlWidget.h>
 
 ControlWidget::ControlWidget(QWidget* parent)
-	:QWidget(parent) {
+	:QWidget(parent), ui(new Ui::ControlWidget) {
 
+	ui->setupUi(this);
 }
 
 ControlWidget::~ControlWidget() {
 
+	delete ui;
 }
 
 void ControlWidget::paintEvent(QPaintEvent* event) {

@@ -45,6 +45,10 @@ set(Ui_HEADERS
 
 set(Ui_UI
     MainWindow.ui
+    DockWidget/SceneWidget.ui
+    DockWidget/SourceWidget.ui
+    DockWidget/AudioMixerWidget.ui
+    DockWidget/ControlWidget.ui
     )
 
 add_library(Ui

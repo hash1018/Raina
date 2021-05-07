@@ -4,7 +4,15 @@
 
 #include <qwidget.h>
 
+QT_BEGIN_NAMESPACE
+namespace Ui { class SceneWidget; }
+QT_END_NAMESPACE
+
+
 class SceneWidget : public QWidget {
+
+private:
+	Ui::SceneWidget* ui;
 
 public:
 	SceneWidget(QWidget* parent = nullptr);

@@ -4,7 +4,14 @@
 
 #include <qwidget.h>
 
+QT_BEGIN_NAMESPACE
+namespace Ui { class SourceWidget; }
+QT_END_NAMESPACE
+
 class SourceWidget : public QWidget {
+
+private:
+	Ui::SourceWidget* ui;
 
 public:
 	SourceWidget(QWidget* parent = nullptr);
