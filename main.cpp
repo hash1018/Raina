@@ -22,9 +22,14 @@
 
 #endif
 
+#include "Base/RainaCore.h"
+
 int main(int argc, char *argv[]) {
 
     QApplication a(argc, argv);
+
+    RainaCore::getInstance()->initialize();
+
     MainWindow w;
     
 
@@ -34,8 +39,13 @@ int main(int argc, char *argv[]) {
    
 #endif
    
-    
-
     w.show();
-    return a.exec();
+    a.exec();
+
+    RainaCore::getInstance()->deinitialize();
+
+
+
+    return -1;
+            
 }

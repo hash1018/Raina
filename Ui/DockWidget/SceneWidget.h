@@ -18,8 +18,17 @@ public:
 	SceneWidget(QWidget* parent = nullptr);
 	~SceneWidget();
 
+private:
+	void updateList();
+
 protected:
 	virtual void paintEvent(QPaintEvent* event);
+
+private slots:
+	void addButtonClicked();
+	void removeButtonClicked();
+	void moveUpButtonClicked();
+	void moveDownButtonClicked();
 
 };
 

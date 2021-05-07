@@ -26,7 +26,6 @@ else()
 
 endif()
 
-
 set(Ui_SOURCES
     MainWindow.cpp
     ScreenWidget.cpp

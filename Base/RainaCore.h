@@ -4,10 +4,20 @@
 
 #include "Singleton.h"
 
+class SceneManager;
+
 class RainaCore {
 
 	DeclareSingleton(RainaCore)
 
+private:
+	SceneManager* sceneManager;
+
+public:
+	void initialize();
+	void deinitialize();
+
+	inline SceneManager* const getSceneManager() const { return this->sceneManager; }
 
 };
 
