@@ -29,6 +29,8 @@ endif()
 
 set(Ui_SOURCES
     MainWindow.cpp
+    ScreenWidget.cpp
+    PropertyWidget.cpp
     DockWidget/SceneWidget.cpp
     DockWidget/SourceWidget.cpp
     DockWidget/AudioMixerWidget.cpp
@@ -37,6 +39,8 @@ set(Ui_SOURCES
 
 set(Ui_HEADERS
     MainWindow.h
+    ScreenWidget.h
+    PropertyWidget.h
     DockWidget/SceneWidget.h
     DockWidget/SourceWidget.h
     DockWidget/AudioMixerWidget.h

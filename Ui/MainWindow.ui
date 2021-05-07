@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>790</width>
-    <height>600</height>
+    <height>682</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,7 +16,44 @@
   <property name="dockOptions">
    <set>QMainWindow::AllowNestedDocks|QMainWindow::AnimatedDocks</set>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="ScreenWidget" name="screenWidget" native="true"/>
+    </item>
+    <item>
+     <widget class="PropertyWidget" name="propertyWidget" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>40</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -116,6 +153,18 @@
    <class>ControlWidget</class>
    <extends>QWidget</extends>
    <header location="global">DockWidget/ControlWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ScreenWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">ScreenWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>PropertyWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">PropertyWidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
