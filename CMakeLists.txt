@@ -12,6 +12,8 @@ set(CMAKE_AUTORCC ON)
 
 if(WIN32)
 set (CMAKE_PREFIX_PATH "C:/Qt1/5.15.2/msvc2019_64/lib/cmake/Qt5" )
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/lan
+     DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 endif()
 
 
