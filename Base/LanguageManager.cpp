@@ -18,7 +18,7 @@ LanguageManager::~LanguageManager() {
 
 bool LanguageManager::setLanguage(Language language) {
 
-	QString filePath = QDir::currentPath() + "/Language/" + LanguageManager::convertDirectoryName(language);
+    QString filePath = QDir::currentPath() + "/lan/" + LanguageManager::convertDirectoryName(language);
 
 	if (!QFile(filePath).exists()) {
 

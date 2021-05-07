@@ -29,8 +29,8 @@ public:
 	};
 
 private:
+    QSettings* settings;
 	Language language;
-	QSettings* settings;
 	Type type;
 
 public:
