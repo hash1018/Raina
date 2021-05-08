@@ -27,6 +27,12 @@ list(APPEND SOURCES
     main.cpp
     )
 
+    
+if(WIN32)
+add_executable(Raina WIN32 ${SOURCES})
+else()
 add_executable(Raina ${SOURCES})
+endif()
+
 target_link_libraries(Raina ffmpeg Ui Base Qt5::Gui Qt5::Core Qt5::Widgets  )
 
