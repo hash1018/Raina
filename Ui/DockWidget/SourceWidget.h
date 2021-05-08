@@ -20,6 +20,11 @@ public:
 protected:
 	virtual void paintEvent(QPaintEvent* event);
 
+private slots:
+	void addButtonClicked();
+	void removeButtonClicked();
+	void moveUpButtonClicked();
+	void moveDownButtonClicked();
 };
 
 #endif //_SOURCEWIDGET_H

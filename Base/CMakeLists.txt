@@ -8,6 +8,7 @@ find_package(Qt5 COMPONENTS Core REQUIRED)
 set(Base_SOURCES
     RainaCore.cpp
     Scene.cpp
+    Source.cpp
     LanguageManager.cpp
    )
 
@@ -15,6 +16,7 @@ set(Base_HEADERS
     Singleton.h
     RainaCore.h
     Scene.h
+    Source.h
     LanguageManager.h
     )
 

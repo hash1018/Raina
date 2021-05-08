@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>682</height>
+    <width>865</width>
+    <height>722</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -40,7 +40,14 @@
      <number>0</number>
     </property>
     <item>
-     <widget class="ScreenWidget" name="screenWidget" native="true"/>
+     <widget class="ScreenWidget" name="screenWidget" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>600</width>
+        <height>400</height>
+       </size>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="PropertyWidget" name="propertyWidget" native="true">
@@ -65,7 +72,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>865</width>
      <height>26</height>
     </rect>
    </property>
@@ -88,6 +95,12 @@
    </widget>
   </widget>
   <widget class="QDockWidget" name="sourceDockWidget">
+   <property name="minimumSize">
+    <size>
+     <width>150</width>
+     <height>226</height>
+    </size>
+   </property>
    <property name="features">
     <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
    </property>
@@ -104,6 +117,12 @@
    </widget>
   </widget>
   <widget class="QDockWidget" name="audioMixerDockWidget">
+   <property name="minimumSize">
+    <size>
+     <width>150</width>
+     <height>226</height>
+    </size>
+   </property>
    <property name="features">
     <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
    </property>
@@ -120,6 +139,12 @@
    </widget>
   </widget>
   <widget class="QDockWidget" name="controlDockWidget">
+   <property name="minimumSize">
+    <size>
+     <width>150</width>
+     <height>226</height>
+    </size>
+   </property>
    <property name="features">
     <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
    </property>
