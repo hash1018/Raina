@@ -30,7 +30,7 @@ void SceneManager::remove(Scene* scene) {
 
 void SceneManager::swap(int index, int index2) {
 
-	this->list.swap(index, index2);
+    this->list.swapItemsAt(index, index2);
 }
 
 void SceneManager::clear() {
