@@ -3,19 +3,29 @@
 #define _SOURCEWIDGET_H
 
 #include <qwidget.h>
+#include "../NotifyEvent/Observer.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class SourceWidget; }
 QT_END_NAMESPACE
 
-class SourceWidget : public QWidget {
+class Scene;
+
+class SourceWidget : public QWidget, public Observer {
 
 private:
 	Ui::SourceWidget* ui;
 
+private:
+	Scene* const scene;
+
+
 public:
 	SourceWidget(QWidget* parent = nullptr);
 	~SourceWidget();
+
+	virtual void updateNotifyEvent(NotifyEvent* event);
 
 protected:
 	virtual void paintEvent(QPaintEvent* event);
@@ -25,6 +35,9 @@ private slots:
 	void removeButtonClicked();
 	void moveUpButtonClicked();
 	void moveDownButtonClicked();
+
+private:
+	void updateList();
 };
 
 #endif //_SOURCEWIDGET_H

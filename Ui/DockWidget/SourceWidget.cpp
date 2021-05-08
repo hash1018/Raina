@@ -2,9 +2,11 @@
 #include "SourceWidget.h"
 #include <qpainter.h>
 #include <./ui_SourceWidget.h>
-
+#include "../NotifyEvent/NotifyEvent.h"
+#include "../Base/Scene.h"
+#include "../NotifyEvent/ChangeManager.h"
 SourceWidget::SourceWidget(QWidget* parent)
-	:QWidget(parent), ui(new Ui::SourceWidget) {
+	:QWidget(parent), ui(new Ui::SourceWidget),scene(nullptr) {
 
 	ui->setupUi(this);
 
@@ -12,11 +14,25 @@ SourceWidget::SourceWidget(QWidget* parent)
 	connect(ui->removeButton, &QPushButton::clicked, this, &SourceWidget::removeButtonClicked);
 	connect(ui->moveDownButton, &QPushButton::clicked, this, &SourceWidget::moveDownButtonClicked);
 	connect(ui->moveUpButton, &QPushButton::clicked, this, &SourceWidget::moveUpButtonClicked);
+
+
+	ChangeManager::getInstance()->registerObserver(this);
 }
 
 SourceWidget::~SourceWidget() {
 
 	delete ui;
+}
+
+void SourceWidget::updateNotifyEvent(NotifyEvent* event) {
+
+	if (event->getEventType() == NotifyEvent::EventType::CurrentSceneChanged) {
+	
+		const_cast<Scene*>(this->scene) = dynamic_cast<CurrentSceneChangedEvent*>(event)->getScene();
+
+		this->updateList();
+	}
+
 }
 
 void SourceWidget::paintEvent(QPaintEvent* event) {
@@ -41,4 +57,14 @@ void SourceWidget::moveUpButtonClicked() {
 void SourceWidget::moveDownButtonClicked() {
 
 
+}
+
+void SourceWidget::updateList() {
+
+	ui->listWidget->clear();
+
+	if (this->scene == nullptr)
+		return;
+
+	ui->listWidget->addItem(this->scene->getName());
 }

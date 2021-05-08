@@ -22,6 +22,7 @@ find_package(Qt5 COMPONENTS Gui Core Widgets REQUIRED)
 add_subdirectory(lib-ffmpeg)
 add_subdirectory(Ui)
 add_subdirectory(Base)
+add_subdirectory(NotifyEvent)
 
 list(APPEND SOURCES
     main.cpp
@@ -34,5 +35,5 @@ else()
 add_executable(Raina ${SOURCES})
 endif()
 
-target_link_libraries(Raina ffmpeg Ui Base Qt5::Gui Qt5::Core Qt5::Widgets  )
+target_link_libraries(Raina ffmpeg Ui Base NotifyEvent Qt5::Gui Qt5::Core Qt5::Widgets  )
 
