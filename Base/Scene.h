@@ -37,6 +37,10 @@ private:
 	QString name;
 	//temp
 	static int number;
+
+private:
+	QList<int> list;
+
 public:
 	Scene(const QString& name);
 	~Scene();
