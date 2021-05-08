@@ -30,14 +30,14 @@ public:
 class CurrentSceneChangedEvent : public NotifyEvent {
 
 private:
-	Scene* const scene;
+    Scene* scene;
 
 public:
-	CurrentSceneChangedEvent(Scene* const scene);
+    CurrentSceneChangedEvent(Scene* scene);
 	~CurrentSceneChangedEvent();
 
 public:
-	inline Scene* const getScene() const { return this->scene; }
+    inline Scene* getScene() const { return this->scene; }
 };
 
 #endif //_NOTIFYEVENT_H

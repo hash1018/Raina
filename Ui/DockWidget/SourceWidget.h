@@ -18,7 +18,7 @@ private:
 	Ui::SourceWidget* ui;
 
 private:
-	Scene* const scene;
+    Scene* scene;
 
 
 public:
