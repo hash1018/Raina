@@ -11,10 +11,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->setupUi(this);
 
-    ui->sceneDockWidget->setWindowTitle(getLanUiValue("Menu/Video"));
-    ui->sourceDockWidget->setWindowTitle("Source");
-    ui->audioMixerDockWidget->setWindowTitle("Audio Mixer");
-    ui->controlDockWidget->setWindowTitle("Control");
+    ui->sceneDockWidget->setWindowTitle(getLanUiValue("Dock/Scenes"));
+    ui->sourceDockWidget->setWindowTitle(getLanUiValue("Dock/Sources"));
+    ui->audioMixerDockWidget->setWindowTitle(getLanUiValue("Dock/Audio Mixer"));
+    ui->controlDockWidget->setWindowTitle(getLanUiValue("Dock/Control"));
 }
 
 MainWindow::~MainWindow() {
