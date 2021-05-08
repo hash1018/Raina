@@ -43,19 +43,56 @@ void SceneWidget::updateList() {
 
 void SceneWidget::addButtonClicked() {
 
-	RainaCore::getInstance()->getSceneManager()->add(new Scene("123123"));
+	RainaCore::getInstance()->getSceneManager()->add(new Scene(""));
 	this->updateList();
+	ui->listWidget->setCurrentRow(RainaCore::getInstance()->getSceneManager()->size() - 1);
 }
 
 void SceneWidget::removeButtonClicked() {
 
+	int index = ui->listWidget->currentRow();
+	if (index == -1)
+		return;
+
+	RainaCore::getInstance()->getSceneManager()->remove(RainaCore::getInstance()->getSceneManager()->at(index));
+	this->updateList();
+
+	int size = RainaCore::getInstance()->getSceneManager()->size();
+	if (size == 0)
+		return;
+
+	if (index < size)
+		ui->listWidget->setCurrentRow(index);
+	else
+		ui->listWidget->setCurrentRow(size - 1);
+
+	
 }
 
 void SceneWidget::moveUpButtonClicked() {
 
+	int index = ui->listWidget->currentRow();
+	if (index == -1)
+		return;
+
+	if (index == 0)
+		return;
+
+	RainaCore::getInstance()->getSceneManager()->swap(index, index - 1);
+	this->updateList();
+	ui->listWidget->setCurrentRow(index - 1);
 }
 
 void SceneWidget::moveDownButtonClicked() {
 
+	int index = ui->listWidget->currentRow();
+	if (index == -1)
+		return;
 
+	if (index == ui->listWidget->count() - 1)
+		return;
+
+	RainaCore::getInstance()->getSceneManager()->swap(index, index + 1);
+	this->updateList();
+	ui->listWidget->setCurrentRow(index + 1);
 }

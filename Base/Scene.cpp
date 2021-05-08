@@ -28,6 +28,11 @@ void SceneManager::remove(Scene* scene) {
 	delete scene;
 }
 
+void SceneManager::swap(int index, int index2) {
+
+	this->list.swap(index, index2);
+}
+
 void SceneManager::clear() {
 
 	while (this->list.isEmpty() == false)
@@ -37,10 +42,12 @@ void SceneManager::clear() {
 
 /////////////////////////////////////////////////////
 
+int Scene::number = 0;
 
 Scene::Scene(const QString& name)
 	:name(name) {
 
+	this->name = name + QString::number(Scene::number++);
 }
 
 Scene::~Scene() {

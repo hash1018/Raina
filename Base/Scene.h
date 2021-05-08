@@ -19,6 +19,7 @@ private:
 public:
 	void add(Scene* scene);
 	void remove(Scene* scene);
+	void swap(int index, int index2);
 
 	Scene* const& at(int index) const { return this->list.at(index); }
 	int size() const { return this->list.size(); }
@@ -34,7 +35,8 @@ class Scene {
 
 private:
 	QString name;
-
+	//temp
+	static int number;
 public:
 	Scene(const QString& name);
 	~Scene();
