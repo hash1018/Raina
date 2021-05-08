@@ -2,7 +2,8 @@
 
 #include "Source.h"
 
-Source::Source() {
+Source::Source(const QString &name)
+    :name(name){
 
 }
 

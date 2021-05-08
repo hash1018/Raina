@@ -1,7 +1,7 @@
 
 #include "Ui/MainWindow.h"
 #include <QApplication>
-
+/*
 #ifdef Q_OS_WIN
 
 #define _CRTDBG_MAP_ALLOC
@@ -13,6 +13,7 @@
 #endif
 
 #endif
+*/
 
 #include "Base/RainaCore.h"
 
@@ -24,10 +25,11 @@ int main(int argc, char *argv[]) {
 
     MainWindow w;
     
-
+    /*
 #ifdef Q_OS_WIN
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF); 
 #endif
+*/
    
     w.show();
     a.exec();

@@ -2,11 +2,19 @@
 #ifndef _SOURCE_H
 #define _SOURCE_H
 
+#include <qstring.h>
+
 class Source {
 
+private:
+    QString name;
 public:
-	Source();
+    Source(const QString &name);
 	~Source();
+
+
+public:
+    inline const QString& getName() const {return this->name;}
 
 };
 
