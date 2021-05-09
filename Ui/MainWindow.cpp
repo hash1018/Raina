@@ -2,6 +2,8 @@
 #include "MainWindow.h"
 #include "./ui_MainWindow.h"
 #include "../Base/LanguageManager.h"
+#include "../Chain/RequestStrategyFactory.h"
+#include "../Chain/RequestStrategy.h"
 
 MainWindow::MainWindow()
     : QMainWindow(nullptr) ,Chain(nullptr)
@@ -32,5 +34,18 @@ MainWindow::~MainWindow() {
 
 void MainWindow::request(Request* request) {
 
+    RequestStrategy* strategy = RequestStrategyFactory::create(this, request);
 
+    if (strategy != nullptr) {
+    
+        strategy->response();
+        delete strategy;
+    }
+}
+
+
+void MainWindow::updateNotifyEvent(NotifyEvent* event) {
+
+    for (int i = 0; i < this->observers.size(); i++)
+        this->observers.at(i)->updateNotifyEvent(event);
 }

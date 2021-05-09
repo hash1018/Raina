@@ -3,10 +3,9 @@
 #include "SceneWidget.h"
 #include <qpainter.h>
 #include <./ui_SceneWidget.h>
-#include "../Base/RainaCore.h"
 #include "../Base/Scene.h"
 #include "../NotifyEvent/NotifyEvent.h"
-
+#include "../Chain/Request.h"
 
 SceneWidget::SceneWidget(QWidget* parent, Chain* chain)
 	:QWidget(parent), Chain(chain), ui(new Ui::SceneWidget) {
@@ -27,7 +26,14 @@ SceneWidget::~SceneWidget() {
 
 void SceneWidget::updateNotifyEvent(NotifyEvent* event) {
 
+	if (event->getEventType() == NotifyEvent::EventType::CurrentSceneChanged) {
+	
+		CurrentSceneChangedEvent* event2 = dynamic_cast<CurrentSceneChangedEvent*>(event);
 
+		this->list = event2->getList();
+
+		this->updateList();
+	}
 }
 
 
@@ -42,11 +48,9 @@ void SceneWidget::updateList() {
 
 	ui->listWidget->clear();
 
-	int size = RainaCore::getInstance()->getSceneManager()->size();
-
-	for (int i = 0; i < size; i++) {
+	for (int i = 0; i < this->list.size(); i++) {
 	
-		ui->listWidget->addItem(RainaCore::getInstance()->getSceneManager()->at(i)->getName());
+		ui->listWidget->addItem(this->list.at(i)->getName());
 	}
 
 	connect(ui->listWidget, &QListWidget::currentRowChanged, this, &SceneWidget::listCurrentRowChanged);
@@ -54,15 +58,18 @@ void SceneWidget::updateList() {
 
 
 void SceneWidget::addButtonClicked() {
-
+	/*
 	RainaCore::getInstance()->getSceneManager()->add(new Scene(""));
 	this->updateList();
 
 	int index = RainaCore::getInstance()->getSceneManager()->size() - 1;
 	ui->listWidget->setCurrentRow(index);
-	
+	*/
 	//CurrentSceneChangedEvent event(RainaCore::getInstance()->getSceneManager()->at(index));
 	//ChangeManager::getInstance()->updateNotifyEvent(&event);
+
+	RequestChangeScene request("123");
+	this->request(&request);
 }
 
 void SceneWidget::removeButtonClicked() {
@@ -71,6 +78,10 @@ void SceneWidget::removeButtonClicked() {
 	if (index == -1)
 		return;
 
+	RequestChangeScene request(this->list.at(index), RequestChangeScene::ChangeType::Remove);
+	this->request(&request);
+
+	/*
 	RainaCore::getInstance()->getSceneManager()->remove(RainaCore::getInstance()->getSceneManager()->at(index));
 	this->updateList();
 
@@ -95,7 +106,7 @@ void SceneWidget::removeButtonClicked() {
 	//	CurrentSceneChangedEvent event(RainaCore::getInstance()->getSceneManager()->at(size - 1));
 	//	ChangeManager::getInstance()->updateNotifyEvent(&event);
 	}
-
+	*/
 	
 }
 
@@ -108,16 +119,26 @@ void SceneWidget::moveUpButtonClicked() {
 	if (index == 0)
 		return;
 
+
+	RequestChangeScene request(this->list.at(index), RequestChangeScene::ChangeType::MoveUp);
+	this->request(&request);
+
+
+
+	/*
 	RainaCore::getInstance()->getSceneManager()->swap(index, index - 1);
 	this->updateList();
 	ui->listWidget->setCurrentRow(index - 1);
 
 	//CurrentSceneChangedEvent event(RainaCore::getInstance()->getSceneManager()->at(index - 1));
 	//ChangeManager::getInstance()->updateNotifyEvent(&event);
+
+	*/
 }
 
 void SceneWidget::moveDownButtonClicked() {
 
+	
 	int index = ui->listWidget->currentRow();
 	if (index == -1)
 		return;
@@ -125,16 +146,30 @@ void SceneWidget::moveDownButtonClicked() {
 	if (index == ui->listWidget->count() - 1)
 		return;
 
+	RequestChangeScene request(this->list.at(index), RequestChangeScene::ChangeType::MoveDown);
+	this->request(&request);
+
+
+	/*
 	RainaCore::getInstance()->getSceneManager()->swap(index, index + 1);
 	this->updateList();
 	ui->listWidget->setCurrentRow(index + 1);
 
 	//CurrentSceneChangedEvent event(RainaCore::getInstance()->getSceneManager()->at(index + 1));
 	//ChangeManager::getInstance()->updateNotifyEvent(&event);
+
+	*/
 }
 
 void SceneWidget::listCurrentRowChanged(int row) {
 
 	//CurrentSceneChangedEvent event(RainaCore::getInstance()->getSceneManager()->at(row));
 	//ChangeManager::getInstance()->updateNotifyEvent(&event);
+
+	if (row == -1)
+		return;
+
+	RequestChangeScene request(this->list.at(row), RequestChangeScene::ChangeType::CurrentScene);
+	this->request(&request);
+
 }

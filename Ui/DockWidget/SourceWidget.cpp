@@ -25,12 +25,14 @@ SourceWidget::~SourceWidget() {
 
 void SourceWidget::updateNotifyEvent(NotifyEvent* event) {
 
+    /*
 	if (event->getEventType() == NotifyEvent::EventType::CurrentSceneChanged) {
 	
         this->scene = dynamic_cast<CurrentSceneChangedEvent*>(event)->getScene();
 
 		this->updateList();
 	}
+    */
 
 }
 

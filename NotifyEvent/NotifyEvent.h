@@ -2,6 +2,8 @@
 #ifndef _NOTIFYEVENT_H
 #define _NOTIFYEVENT_H
 
+#include <qlist.h>
+
 class Scene;
 class Source;
 
@@ -32,14 +34,16 @@ public:
 class CurrentSceneChangedEvent : public NotifyEvent {
 
 private:
-    Scene* scene;
+	QList<const Scene*> list;
+    const Scene* scene;
 
 public:
-    CurrentSceneChangedEvent(Scene* scene);
+	CurrentSceneChangedEvent(const QList<const Scene*>& list, const Scene* scene);
 	~CurrentSceneChangedEvent();
 
 public:
-    inline Scene* getScene() const { return this->scene; }
+	inline const QList<const Scene*>& getList() const { return this->list; }
+    inline const Scene* getScene() const { return this->scene; }
 };
 
 //////////////////////////////////////////////////////////////

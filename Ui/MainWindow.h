@@ -11,6 +11,7 @@ namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
 class Observer;
+class NotifyEvent;
 
 class MainWindow : public QMainWindow, public Chain {
 
@@ -27,7 +28,7 @@ public:
     ~MainWindow();
 
     virtual void request(Request* request);
-    
+    void updateNotifyEvent(NotifyEvent* event);
 };
 
 

@@ -9,6 +9,8 @@ class Source;
 class SceneManager {
 
 	friend class RainaCore;
+	friend class RequestChangeSceneStrategy;
+	
 
 private:
 	QList<Scene*> list;
@@ -17,7 +19,7 @@ private:
 	SceneManager();
 	~SceneManager();
 
-public:
+private:
 	void add(Scene* scene);
 	void remove(Scene* scene);
 	void swap(int index, int index2);
