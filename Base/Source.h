@@ -8,6 +8,10 @@ class Source {
 
 private:
     QString name;
+
+    //temp
+    static int number;
+
 public:
     Source(const QString &name);
 	~Source();

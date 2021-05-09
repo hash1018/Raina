@@ -67,9 +67,6 @@ void SourceWidget::addButtonClicked() {
     if (this->scene == nullptr)
         return;
 
-    int index = ui->listWidget->currentRow();
-    
-
     RequestChangeSource request(const_cast<Scene*>(this->scene), "123");
     this->request(&request);
 }
@@ -90,7 +87,7 @@ void SourceWidget::removeButtonClicked() {
 }
 
 void SourceWidget::moveUpButtonClicked() {
-    /*
+    
     int index = ui->listWidget->currentRow();
     if (index == -1)
         return;
@@ -98,18 +95,14 @@ void SourceWidget::moveUpButtonClicked() {
     if (index == 0)
         return;
 
-    this->scene->swap(index, index - 1);
-    this->updateList();
-    ui->listWidget->setCurrentRow(index - 1);
-
-   // CurrentSourceChangedEvent event(this->scene->at(index - 1));
-   // ChangeManager::getInstance()->updateNotifyEvent(&event);
-   */
+    RequestChangeSource request(const_cast<Scene*>(this->scene), this->scene->at(index),
+        RequestChangeSource::ChangeType::MoveUp);
+    this->request(&request);
 }
 
 void SourceWidget::moveDownButtonClicked() {
 
-    /*
+    
     int index = ui->listWidget->currentRow();
     if (index == -1)
         return;
@@ -117,19 +110,12 @@ void SourceWidget::moveDownButtonClicked() {
     if (index == ui->listWidget->count() - 1)
         return;
 
-    this->scene->swap(index, index + 1);
-    this->updateList();
-    ui->listWidget->setCurrentRow(index + 1);
-
-   // CurrentSourceChangedEvent event(this->scene->at(index + 1));
-   // ChangeManager::getInstance()->updateNotifyEvent(&event);
-   */
+    RequestChangeSource request(const_cast<Scene*>(this->scene), this->scene->at(index),
+        RequestChangeSource::ChangeType::MoveDown);
+    this->request(&request);
 }
 
 void SourceWidget::listCurrentRowChanged(int row) {
-
-   // CurrentSourceChangedEvent event(this->scene->at(row));
-   // ChangeManager::getInstance()->updateNotifyEvent(&event);
 
     if (row == -1) {
         RequestChangeSource request(const_cast<Scene*>(this->scene), nullptr, RequestChangeSource::ChangeType::CurrentSource);

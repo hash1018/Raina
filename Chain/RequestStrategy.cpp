@@ -165,7 +165,24 @@ bool RequestChangeSourceStrategy::response() {
 		CurrentSourceChangedEvent event(request->getScene(), request->getSource());
 		this->mainWindow->updateNotifyEvent(&event);
 	}
+	else if (request->getChangeType() == RequestChangeSource::ChangeType::MoveUp) {
+	
+		int index = request->getScene()->indexOf(const_cast<Source*>(request->getSource()));
 
+		request->getScene()->swap(index, index - 1);
+
+		CurrentSourceChangedEvent event(request->getScene(), request->getScene()->at(index - 1));
+		this->mainWindow->updateNotifyEvent(&event);
+	}
+	else if (request->getChangeType() == RequestChangeSource::ChangeType::MoveDown) {
+	
+		int index = request->getScene()->indexOf(const_cast<Source*>(request->getSource()));
+
+		request->getScene()->swap(index, index + 1);
+
+		CurrentSourceChangedEvent event(request->getScene(), request->getScene()->at(index + 1));
+		this->mainWindow->updateNotifyEvent(&event);
+	}
 
 	return true;
 }

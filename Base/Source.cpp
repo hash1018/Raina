@@ -2,8 +2,10 @@
 
 #include "Source.h"
 
-Source::Source(const QString &name)
-    :name(name){
+int Source::number = 0;
+
+Source::Source(const QString& name)
+    :name(name + QString::number(Source::number++)) {
 
 }
 
