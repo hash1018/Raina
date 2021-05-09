@@ -9,8 +9,6 @@ class Source;
 class SceneManager {
 
 	friend class RainaCore;
-	friend class RequestChangeSceneStrategy;
-	
 
 private:
 	QList<Scene*> list;
@@ -19,10 +17,11 @@ private:
 	SceneManager();
 	~SceneManager();
 
-private:
+public:
 	void add(Scene* scene);
 	void remove(Scene* scene);
 	void swap(int index, int index2);
+	int indexOf(Scene* scene)const { return this->list.indexOf(scene); }
 
     inline Scene* const& at(int index) const { return this->list.at(index); }
     inline int size() const { return this->list.size(); }
