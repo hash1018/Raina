@@ -3,22 +3,30 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <qlist.h>
+#include "../Chain/Chain.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow {
-    
+class Observer;
+
+class MainWindow : public QMainWindow, public Chain {
+
     Q_OBJECT
 
 private:
     Ui::MainWindow* ui;
 
+private:
+    QList<Observer*> observers;
+
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow();
     ~MainWindow();
 
+    virtual void request(Request* request);
     
 };
 

@@ -4,21 +4,18 @@
 #include <./ui_SourceWidget.h>
 #include "../NotifyEvent/NotifyEvent.h"
 #include "../Base/Scene.h"
-#include "../NotifyEvent/ChangeManager.h"
 #include "../Base/Source.h"
 
-SourceWidget::SourceWidget(QWidget* parent)
-	:QWidget(parent), ui(new Ui::SourceWidget),scene(nullptr) {
+SourceWidget::SourceWidget(QWidget* parent, Chain* chain)
+    :QWidget(parent), Chain(chain), ui(new Ui::SourceWidget), scene(nullptr) {
 
-	ui->setupUi(this);
+    ui->setupUi(this);
 
-	connect(ui->addButton, &QPushButton::clicked, this, &SourceWidget::addButtonClicked);
-	connect(ui->removeButton, &QPushButton::clicked, this, &SourceWidget::removeButtonClicked);
-	connect(ui->moveDownButton, &QPushButton::clicked, this, &SourceWidget::moveDownButtonClicked);
-	connect(ui->moveUpButton, &QPushButton::clicked, this, &SourceWidget::moveUpButtonClicked);
+    connect(ui->addButton, &QPushButton::clicked, this, &SourceWidget::addButtonClicked);
+    connect(ui->removeButton, &QPushButton::clicked, this, &SourceWidget::removeButtonClicked);
+    connect(ui->moveDownButton, &QPushButton::clicked, this, &SourceWidget::moveDownButtonClicked);
+    connect(ui->moveUpButton, &QPushButton::clicked, this, &SourceWidget::moveUpButtonClicked);
 
-
-	ChangeManager::getInstance()->registerObserver(this);
 }
 
 SourceWidget::~SourceWidget() {
@@ -37,6 +34,10 @@ void SourceWidget::updateNotifyEvent(NotifyEvent* event) {
 
 }
 
+void SourceWidget::request(Request* request) {
+
+
+}
 void SourceWidget::paintEvent(QPaintEvent* event) {
 
 	QPainter painter(this);
@@ -52,8 +53,8 @@ void SourceWidget::addButtonClicked() {
     int index = this->scene->size() - 1;
     ui->listWidget->setCurrentRow(index);
 
-    CurrentSourceChangedEvent event(this->scene->at(index));
-    ChangeManager::getInstance()->updateNotifyEvent(&event);
+   // CurrentSourceChangedEvent event(this->scene->at(index));
+   // ChangeManager::getInstance()->updateNotifyEvent(&event);
 }
 
 void SourceWidget::removeButtonClicked() {
@@ -68,8 +69,8 @@ void SourceWidget::removeButtonClicked() {
     int size = this->scene->size();
     if (size == 0) {
 
-        CurrentSourceChangedEvent event(nullptr);
-        ChangeManager::getInstance()->updateNotifyEvent(&event);
+     //   CurrentSourceChangedEvent event(nullptr);
+    //    ChangeManager::getInstance()->updateNotifyEvent(&event);
         
         return;
     }
@@ -77,14 +78,14 @@ void SourceWidget::removeButtonClicked() {
     if (index < size) {
         ui->listWidget->setCurrentRow(index);
 
-        CurrentSourceChangedEvent event(this->scene->at(index));
-        ChangeManager::getInstance()->updateNotifyEvent(&event);
+    //    CurrentSourceChangedEvent event(this->scene->at(index));
+    //    ChangeManager::getInstance()->updateNotifyEvent(&event);
     }
     else {
         ui->listWidget->setCurrentRow(size - 1);
 
-        CurrentSourceChangedEvent event(this->scene->at(size - 1));
-        ChangeManager::getInstance()->updateNotifyEvent(&event);
+    //    CurrentSourceChangedEvent event(this->scene->at(size - 1));
+    //    ChangeManager::getInstance()->updateNotifyEvent(&event);
     }
 
 }
@@ -102,8 +103,8 @@ void SourceWidget::moveUpButtonClicked() {
     this->updateList();
     ui->listWidget->setCurrentRow(index - 1);
 
-    CurrentSourceChangedEvent event(this->scene->at(index - 1));
-    ChangeManager::getInstance()->updateNotifyEvent(&event);
+   // CurrentSourceChangedEvent event(this->scene->at(index - 1));
+   // ChangeManager::getInstance()->updateNotifyEvent(&event);
 }
 
 void SourceWidget::moveDownButtonClicked() {
@@ -119,14 +120,14 @@ void SourceWidget::moveDownButtonClicked() {
     this->updateList();
     ui->listWidget->setCurrentRow(index + 1);
 
-    CurrentSourceChangedEvent event(this->scene->at(index + 1));
-    ChangeManager::getInstance()->updateNotifyEvent(&event);
+   // CurrentSourceChangedEvent event(this->scene->at(index + 1));
+   // ChangeManager::getInstance()->updateNotifyEvent(&event);
 }
 
 void SourceWidget::listCurrentRowChanged(int row) {
 
-    CurrentSourceChangedEvent event(this->scene->at(row));
-    ChangeManager::getInstance()->updateNotifyEvent(&event);
+   // CurrentSourceChangedEvent event(this->scene->at(row));
+   // ChangeManager::getInstance()->updateNotifyEvent(&event);
 }
 
 void SourceWidget::updateList() {

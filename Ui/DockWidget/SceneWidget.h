@@ -3,21 +3,25 @@
 #define _SCENEWIDGET_H
 
 #include <qwidget.h>
+#include "../Chain/Chain.h"
+#include "../NotifyEvent/Observer.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class SceneWidget; }
 QT_END_NAMESPACE
 
 
-class SceneWidget : public QWidget {
+class SceneWidget : public QWidget, public Chain, public Observer {
 
 private:
 	Ui::SceneWidget* ui;
 
 public:
-	SceneWidget(QWidget* parent = nullptr);
+	SceneWidget(QWidget* parent = nullptr, Chain* chain = nullptr);
 	~SceneWidget();
 
+	virtual void updateNotifyEvent(NotifyEvent* event);
+	
 private:
 	void updateList();
 

@@ -2,21 +2,18 @@
 #include "CurrentSourceInfoWidget.h"
 #include <qpainter.h>
 #include "../NotifyEvent/NotifyEvent.h"
-#include "../NotifyEvent/ChangeManager.h"
 #include <./ui_CurrentSourceInfoWidget.h>
 #include "../Base/Source.h"
 
-CurrentSourceInfoWidget::CurrentSourceInfoWidget(QWidget* parent)
-	:QWidget(parent), ui(new Ui::CurrentSourceInfoWidget), source(nullptr) {
-
+CurrentSourceInfoWidget::CurrentSourceInfoWidget(QWidget* parent, Chain* chain)
+	:QWidget(parent), Chain(chain), ui(new Ui::CurrentSourceInfoWidget), source(nullptr) {
 
 	ui->setupUi(this);
-
-	ChangeManager::getInstance()->registerObserver(this);
 }
 
 CurrentSourceInfoWidget::~CurrentSourceInfoWidget() {
 
+	delete ui;
 }
 
 void CurrentSourceInfoWidget::updateNotifyEvent(NotifyEvent* event) {
