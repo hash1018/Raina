@@ -28,8 +28,17 @@ public:
 	~RequestChangeSceneStrategy();
 
 	virtual bool response();
+};
 
+//////////////////////////////////////////////////////////
 
+class RequestChangeSourceStrategy : public RequestStrategy {
+
+public:
+	RequestChangeSourceStrategy(MainWindow* mainWindow, Request* request);
+	~RequestChangeSourceStrategy();
+
+	virtual bool response();
 };
 
 #endif //_REQUESTSTRATEGY_H

@@ -51,6 +51,7 @@ public:
     void add(Source* source);
     void remove(Source* source);
     void swap(int index, int index2);
+	int indexOf(Source* source)const { return this->list.indexOf(source); }
 
     inline Source* const& at(int index) const { return this->list.at(index); }
     inline int size() const { return this->list.size(); }

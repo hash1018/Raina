@@ -28,8 +28,8 @@ CurrentSceneChangedEvent::~CurrentSceneChangedEvent() {
 
 ///////////////////////////////////////////////////////////////
 
-CurrentSourceChangedEvent::CurrentSourceChangedEvent(Source* source)
-	:NotifyEvent(EventType::CurrentSourceChanged), source(source) {
+CurrentSourceChangedEvent::CurrentSourceChangedEvent(const Scene* scene, const Source* source)
+	:NotifyEvent(EventType::CurrentSourceChanged), scene(scene), source(source) {
 
 }
 

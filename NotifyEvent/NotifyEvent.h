@@ -51,14 +51,16 @@ public:
 class CurrentSourceChangedEvent : public NotifyEvent {
 
 private:
-	Source* source;
+	const Scene* scene;
+	const Source* source;
 
 public:
-	CurrentSourceChangedEvent(Source* source);
+	CurrentSourceChangedEvent(const Scene* scene, const Source* source);
 	~CurrentSourceChangedEvent();
 
 public:
-	inline Source* getSource() const { return this->source; }
+	inline const Scene* getScene() const { return this->scene; }
+	inline const Source* getSource() const { return this->source; }
 };
 
 #endif //_NOTIFYEVENT_H

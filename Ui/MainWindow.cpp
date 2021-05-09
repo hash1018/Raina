@@ -33,7 +33,7 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::request(Request* request) {
-
+   
     RequestStrategy* strategy = RequestStrategyFactory::create(this, request);
 
     if (strategy != nullptr) {

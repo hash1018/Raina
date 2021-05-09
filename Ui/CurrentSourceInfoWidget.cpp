@@ -26,8 +26,15 @@ void CurrentSourceInfoWidget::updateNotifyEvent(NotifyEvent* event) {
 		this->source = nullptr;
 	}
 	else if (event->getEventType() == NotifyEvent::EventType::CurrentSourceChanged) {
-	
+
 		this->source = dynamic_cast<CurrentSourceChangedEvent*>(event)->getSource();
+
+		if (this->source == nullptr) {
+			ui->label->setText("");
+			ui->label_2->setText("");
+			return;
+		}
+
 		ui->label->setText(source->getName());
 	}
 }

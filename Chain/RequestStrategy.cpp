@@ -6,6 +6,7 @@
 #include "../Base/Scene.h"
 #include "../NotifyEvent/NotifyEvent.h"
 #include "../Ui/MainWindow.h"
+#include "../Base/Source.h"
 
 RequestStrategy::RequestStrategy(MainWindow* mainWindow, Request* request)
 	:mainWindow(mainWindow), request(request) {
@@ -123,6 +124,48 @@ bool RequestChangeSceneStrategy::response() {
 		CurrentSceneChangedEvent event(list, request->getScene());
 		this->mainWindow->updateNotifyEvent(&event);
 	}
+
+	return true;
+}
+
+
+
+///////////////////////////////////////////////////////////////////////
+
+
+RequestChangeSourceStrategy::RequestChangeSourceStrategy(MainWindow* mainWindow, Request* request)
+	:RequestStrategy(mainWindow, request) {
+
+}
+
+RequestChangeSourceStrategy::~RequestChangeSourceStrategy() {
+
+}
+
+bool RequestChangeSourceStrategy::response() {
+
+	RequestChangeSource* request = dynamic_cast<RequestChangeSource*>(this->request);
+
+	if (request->getChangeType() == RequestChangeSource::ChangeType::Add) {
+	
+		request->getScene()->add(new Source(request->getName()));
+
+		CurrentSourceChangedEvent event(request->getScene(), nullptr);
+		this->mainWindow->updateNotifyEvent(&event);
+	}
+	else if (request->getChangeType() == RequestChangeSource::ChangeType::Remove) {
+	
+		request->getScene()->remove(const_cast<Source*>(request->getSource()));
+
+		CurrentSourceChangedEvent event(request->getScene(), nullptr);
+		this->mainWindow->updateNotifyEvent(&event);
+	}
+	else if (request->getChangeType() == RequestChangeSource::ChangeType::CurrentSource) {
+	
+		CurrentSourceChangedEvent event(request->getScene(), request->getSource());
+		this->mainWindow->updateNotifyEvent(&event);
+	}
+
 
 	return true;
 }

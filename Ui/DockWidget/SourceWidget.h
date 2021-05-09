@@ -18,7 +18,7 @@ private:
 	Ui::SourceWidget* ui;
 
 private:
-    Scene* scene;
+    const Scene* scene;
 
 
 public:
@@ -26,7 +26,6 @@ public:
 	~SourceWidget();
 
 	virtual void updateNotifyEvent(NotifyEvent* event);
-	virtual void request(Request* request);
 
 protected:
 	virtual void paintEvent(QPaintEvent* event);

@@ -19,6 +19,10 @@ RequestStrategy* RequestStrategyFactory::create(MainWindow* mainWindow, Request*
 	
 		strategy = new RequestChangeSceneStrategy(mainWindow, request);
 	}
+	else if (request->getRequestType() == Request::RequestType::RequestChangeSource) {
+	
+		strategy = new RequestChangeSourceStrategy(mainWindow, request);
+	}
 
 	return strategy;
 }
