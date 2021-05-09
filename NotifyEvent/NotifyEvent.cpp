@@ -24,3 +24,15 @@ CurrentSceneChangedEvent::~CurrentSceneChangedEvent() {
 
 
 }
+
+
+///////////////////////////////////////////////////////////////
+
+CurrentSourceChangedEvent::CurrentSourceChangedEvent(Source* source)
+	:NotifyEvent(EventType::CurrentSourceChanged), source(source) {
+
+}
+
+CurrentSourceChangedEvent::~CurrentSourceChangedEvent() {
+
+}

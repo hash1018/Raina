@@ -3,12 +3,14 @@
 #define _NOTIFYEVENT_H
 
 class Scene;
+class Source;
 
 class NotifyEvent {
 
 public:
 	enum class EventType {
 		CurrentSceneChanged,
+		CurrentSourceChanged,
 
 	};
 
@@ -38,6 +40,21 @@ public:
 
 public:
     inline Scene* getScene() const { return this->scene; }
+};
+
+//////////////////////////////////////////////////////////////
+
+class CurrentSourceChangedEvent : public NotifyEvent {
+
+private:
+	Source* source;
+
+public:
+	CurrentSourceChangedEvent(Source* source);
+	~CurrentSourceChangedEvent();
+
+public:
+	inline Source* getSource() const { return this->source; }
 };
 
 #endif //_NOTIFYEVENT_H

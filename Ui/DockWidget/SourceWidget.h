@@ -35,6 +35,7 @@ private slots:
 	void removeButtonClicked();
 	void moveUpButtonClicked();
 	void moveDownButtonClicked();
+	void listCurrentRowChanged(int row);
 
 private:
 	void updateList();
