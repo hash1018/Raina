@@ -7,6 +7,7 @@
 *.userosscache
 *.sln.docstates
 *.txt.user.*
+CMakeSettings.json
 
 
 # User-specific files (MonoDevelop/Xamarin Studio)
