@@ -18,10 +18,16 @@
 
 
 #include "Base/RainaCore.h"
+#include <qfile.h>
 
 int main(int argc, char *argv[]) {
 
     QApplication a(argc, argv);
+
+    QFile mainQss(":/Qss/main");
+    mainQss.open(QFile::ReadOnly);
+    QString styleSheet = QLatin1String(mainQss.readAll());
+    a.setStyleSheet(styleSheet);
 
     RainaCore::getInstance()->initialize();
 

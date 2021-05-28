@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/Main"/>
+    <qresource prefix="/Qss">
+        <file alias="main">Resources/main.qss</file>
+    </qresource>
+</RCC>

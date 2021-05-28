@@ -27,6 +27,7 @@ add_subdirectory(Chain)
 
 list(APPEND SOURCES
     main.cpp
+    Raina.qrc
     )
 
     
