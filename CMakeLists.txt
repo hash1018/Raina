@@ -30,11 +30,18 @@ list(APPEND SOURCES
     Raina.qrc
     )
 
+
+    
     
 if(WIN32)
-add_executable(Raina WIN32 ${SOURCES})
+set(APP_ICON_RESOURCE_WINDOWS "${CMAKE_CURRENT_SOURCE_DIR}/Resources/Raina.rc")
+add_executable(Raina WIN32 ${SOURCES} ${APP_ICON_RESOURCE_WINDOWS} )
 else()
-add_executable(Raina ${SOURCES})
+set(MACOSX_BUNDLE_ICON_FILE ${CMAKE_CURRENT_SOURCE_DIR}/Resources/logo.icns)
+set(APP_ICON_MACOSX ${CMAKE_CURRENT_SOURCE_DIR}/logo.icns)
+    set_source_files_properties(${APP_ICON_MACOSX} PROPERTIES
+           MACOSX_PACKAGE_LOCATION "Resources")
+add_executable(Raina MACOSX_BUNDLE ${SOURCES} ${APP_ICON_MACOSX})
 endif()
 
 target_link_libraries(Raina ffmpeg Ui Base NotifyEvent Chain Qt5::Gui Qt5::Core Qt5::Widgets  )
