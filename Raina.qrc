@@ -5,6 +5,7 @@
         <file alias="move-up">Resources/Image/move-up.png</file>
         <file alias="remove">Resources/Image/remove.png</file>
         <file alias="setting">Resources/Image/setting.png</file>
+        <file alias="logo">Resources/Image/logo.png</file>
     </qresource>
     <qresource prefix="/Qss">
         <file alias="main">Resources/main.qss</file>

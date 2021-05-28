@@ -303,7 +303,7 @@ QListView::item:selected:active {
 
 QListView::item:hover {
     border:0px;
-	background: #12AE79;
+	background: #04E096;
 }
 
 

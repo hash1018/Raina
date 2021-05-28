@@ -29,6 +29,8 @@ int main(int argc, char *argv[]) {
     QString styleSheet = QLatin1String(mainQss.readAll());
     a.setStyleSheet(styleSheet);
 
+    a.setWindowIcon(QIcon(":/Main/logo"));
+
     RainaCore::getInstance()->initialize();
 
     MainWindow w;
