@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>150</width>
-    <height>300</height>
+    <height>297</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -72,7 +72,7 @@ QPushButton#moveDownButton {
     <number>5</number>
    </property>
    <property name="bottomMargin">
-    <number>5</number>
+    <number>0</number>
    </property>
    <item>
     <widget class="QListWidget" name="listWidget"/>
@@ -82,13 +82,13 @@ QPushButton#moveDownButton {
      <property name="minimumSize">
       <size>
        <width>0</width>
-       <height>40</height>
+       <height>32</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
        <width>16777215</width>
-       <height>40</height>
+       <height>32</height>
       </size>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
