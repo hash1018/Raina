@@ -18,8 +18,12 @@ LanguageManager::~LanguageManager() {
 
 bool LanguageManager::setLanguage(Language language) {
 
+#ifdef Q_OS_WIN
     QString filePath = QDir::currentPath() + "/lan/" + LanguageManager::convertDirectoryName(language);
 
+#elif
+
+#endif 
 	if (!QFile(filePath).exists()) {
 
 		Q_ASSERT_X(false, "LanguageManager::setLanguage", "following language donsn't support.");
@@ -52,9 +56,12 @@ QString LanguageManager::getValue(const Type& type, const QString& key) {
 
 	if (this->settings == nullptr) {
 
+#ifdef Q_OS_WIN
         QString filePath = QDir::currentPath() + "/lan/" + this->convertDirectoryName(this->language) +
 			"/" + this->convertFileName(type);
+#elif
 
+#endif 
 		if (!QFile(filePath).exists())
             Q_ASSERT_X(false, "LanguageManager::LanguageManager", "invalid filePath");
 
