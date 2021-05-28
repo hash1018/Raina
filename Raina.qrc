@@ -1,5 +1,11 @@
 <RCC>
-    <qresource prefix="/Main"/>
+    <qresource prefix="/Main">
+        <file alias="add">Resources/Image/add.png</file>
+        <file alias="move-down">Resources/Image/move-down.png</file>
+        <file alias="move-up">Resources/Image/move-up.png</file>
+        <file alias="remove">Resources/Image/remove.png</file>
+        <file alias="setting">Resources/Image/setting.png</file>
+    </qresource>
     <qresource prefix="/Qss">
         <file alias="main">Resources/main.qss</file>
     </qresource>

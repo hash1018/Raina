@@ -19,6 +19,45 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">
+
+QPushButton {
+    background-color: #535353;
+    border: 0px;
+    border-radius: 5px;
+    color:white;
+}
+
+QPushButton:disabled {
+    background-color: #424242;
+    border: 0px;
+    border-radius: 5px;
+    color: #7C7C7C;
+}
+
+QPushButton:hover {
+    background-color: #9B9B9B;
+    border: 0px;
+    border-radius: 5px;
+}
+
+QPushButton#addButton {
+    background-image: url(:/Main/add);
+}
+
+QPushButton#removeButton {
+    background-image: url(:/Main/remove);
+}
+
+QPushButton#moveUpButton {
+    background-image: url(:/Main/move-up);
+}
+
+QPushButton#moveDownButton {
+    background-image: url(:/Main/move-down);
+}</string>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
     <number>0</number>
@@ -72,18 +111,18 @@
        <widget class="QPushButton" name="addButton">
         <property name="minimumSize">
          <size>
-          <width>25</width>
-          <height>25</height>
+          <width>24</width>
+          <height>24</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>25</width>
-          <height>25</height>
+          <width>24</width>
+          <height>24</height>
          </size>
         </property>
         <property name="text">
-         <string>+</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -91,18 +130,18 @@
        <widget class="QPushButton" name="removeButton">
         <property name="minimumSize">
          <size>
-          <width>25</width>
-          <height>25</height>
+          <width>24</width>
+          <height>24</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>25</width>
-          <height>25</height>
+          <width>24</width>
+          <height>24</height>
          </size>
         </property>
         <property name="text">
-         <string>-</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -135,18 +174,18 @@
        <widget class="QPushButton" name="moveUpButton">
         <property name="minimumSize">
          <size>
-          <width>25</width>
-          <height>25</height>
+          <width>24</width>
+          <height>24</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>25</width>
-          <height>25</height>
+          <width>24</width>
+          <height>24</height>
          </size>
         </property>
         <property name="text">
-         <string>up</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -154,18 +193,18 @@
        <widget class="QPushButton" name="moveDownButton">
         <property name="minimumSize">
          <size>
-          <width>25</width>
-          <height>25</height>
+          <width>24</width>
+          <height>24</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>25</width>
-          <height>25</height>
+          <width>24</width>
+          <height>24</height>
          </size>
         </property>
         <property name="text">
-         <string>dw</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -187,6 +226,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../Raina.qrc"/>
+ </resources>
  <connections/>
 </ui>

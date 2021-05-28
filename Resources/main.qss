@@ -26,16 +26,18 @@ QPushButton:hover {
 
 QLineEdit {
 
-    background: #FFFFFF;
-    border: 1px solid #DEDEDE;	
+    background: #AFAFAF;
+    border: 1px solid #434343;	
 	border-radius: 5px;
+    color:white;
 
 }
 
 QLineEdit:disabled {
-    background:#DEDEDE;
-    border: 1px solid #DEDEDE;
+    background:#434343;
+    border: 1px solid #434343;
 	border-radius: 5px;
+    color: #7C7C7C;
 }
 
 /*      ///////////////////////////////////////           */ 
@@ -119,7 +121,7 @@ QComboBox::down-arrow {
 	 padding-bottom: 3px;
      border: 1px solid #DEDEDE;
 	 border-radius: 5px;
-     selection-background-color: #FFD477;
+     selection-background-color: #12AE79;
  }
  
 
@@ -287,7 +289,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 /*******************************************************************/
 
 QListView {
-    background-color: #FFFFFF;
+    background-color: transparent;
     border: 1px solid #DEDEDE;
 	border-radius: 5px;
     /*show-decoration-selected: 1;*/ /* make the selection span the entire width of the view */
@@ -296,12 +298,12 @@ QListView {
 QListView::item:selected:active {
     outline: none;
     border:0px;
-    background: #FFCE64;
+    background: #12AE79;
 }
 
 QListView::item:hover {
     border:0px;
-	background: #FFD477;
+	background: #12AE79;
 }
 
 
