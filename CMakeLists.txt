@@ -39,12 +39,12 @@ add_executable(Raina WIN32 ${SOURCES} ${APP_ICON_RESOURCE_WINDOWS} )
 
 
 elseif(APPLE)
-set(MACOSX_BUNDLE_ICON_FILE ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Resources-mac/logo.icns)
-set(APP_ICON_MACOSX ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Resources-mac/logo.icns)
-    set_source_files_properties(${APP_ICON_MACOSX} PROPERTIES
-           MACOSX_PACKAGE_LOCATION "Resources")
-add_executable(Raina MACOSX_BUNDLE ${SOURCES} ${APP_ICON_MACOSX})
-
+#set(MACOSX_BUNDLE_ICON_FILE ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Resources-mac/logo.icns)
+#set(APP_ICON_MACOSX ${CMAKE_CURRENT_SOURCE_DIR}/Resources/Resources-mac/logo.icns)
+#    set_source_files_properties(${APP_ICON_MACOSX} PROPERTIES
+#           MACOSX_PACKAGE_LOCATION "Resources")
+#add_executable(Raina MACOSX_BUNDLE ${SOURCES} ${APP_ICON_MACOSX})
+add_executable(Raina ${SOURCES})
 else()
 
 

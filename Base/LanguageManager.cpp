@@ -3,6 +3,7 @@
 #include <qfile.h>
 #include <qsettings.h>
 #include <qdir.h>
+#include <qdebug.h>
 
 LanguageManager::LanguageManager()
 	:settings(nullptr), language(Language::Korean), type(Type::Ui) {
@@ -20,10 +21,12 @@ bool LanguageManager::setLanguage(Language language) {
 
 #ifdef Q_OS_WIN
     QString filePath = QDir::currentPath() + "/lan/" + LanguageManager::convertDirectoryName(language);
-
-#elif
-
 #endif 
+
+#ifdef Q_OS_MAC
+    QString filePath=QDir::currentPath() + "/lan/" + LanguageManager::convertDirectoryName(language);
+    qDebug() << filePath;
+#endif
 	if (!QFile(filePath).exists()) {
 
 		Q_ASSERT_X(false, "LanguageManager::setLanguage", "following language donsn't support.");
@@ -59,9 +62,14 @@ QString LanguageManager::getValue(const Type& type, const QString& key) {
 #ifdef Q_OS_WIN
         QString filePath = QDir::currentPath() + "/lan/" + this->convertDirectoryName(this->language) +
 			"/" + this->convertFileName(type);
-#elif
-
 #endif 
+
+#ifdef Q_OS_MAC
+        QString filePath = QDir::currentPath() + "/lan/" + this->convertDirectoryName(this->language) +
+            "/" + this->convertFileName(type);
+
+        qDebug() << filePath;
+#endif
 		if (!QFile(filePath).exists())
             Q_ASSERT_X(false, "LanguageManager::LanguageManager", "invalid filePath");
 
