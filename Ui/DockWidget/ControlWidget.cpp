@@ -18,5 +18,6 @@ void ControlWidget::paintEvent(QPaintEvent* event) {
 
 	QPainter painter(this);
 
-	painter.fillRect(this->rect(), QColor(77, 77, 77));
+
+	painter.fillRect(this->rect(), QColor("#535353"));
 }

@@ -203,7 +203,7 @@ QSpinBox::down-arrow:off {
 }
 
 
-
+/* ////////////////////////////////////////// */
 
 
 QScrollBar:vertical {
@@ -295,6 +295,10 @@ QListView {
     /*show-decoration-selected: 1;*/ /* make the selection span the entire width of the view */
 }
 
+QListView::item {
+    color:white;
+}
+
 QListView::item:selected:active {
     outline: none;
     border:0px;
@@ -323,4 +327,18 @@ QMenu::item {
 
 QMenu::item:selected { /* when user selects item using mouse or keyboard */
     background-color: #FFCE64;
+}
+
+/* ************************************************************ */
+
+QDockWidget {
+    border: 1px solid lightgray;
+    color:white;
+    
+}
+
+QDockWidget::title {
+    text-align: center; /* align the text to the left */
+    background: #424242;
+    padding-left: 5px;
 }

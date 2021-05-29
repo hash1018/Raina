@@ -42,7 +42,7 @@ void CurrentSourceInfoWidget::updateNotifyEvent(NotifyEvent* event) {
 void CurrentSourceInfoWidget::paintEvent(QPaintEvent* event) {
 
 	QPainter painter(this);
-	painter.fillRect(this->rect(), QColor(166, 166, 166));
+	painter.fillRect(this->rect(), QColor("#424242"));
 }
 
 

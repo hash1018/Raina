@@ -46,6 +46,8 @@ void SceneWidget::updateNotifyEvent(NotifyEvent* event) {
 void SceneWidget::paintEvent(QPaintEvent* event) {
 
 	QPainter painter(this);
+
+	painter.fillRect(this->rect(), QColor("#535353"));
 }
 
 void SceneWidget::updateList() {

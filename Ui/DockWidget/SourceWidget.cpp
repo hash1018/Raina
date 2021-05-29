@@ -59,7 +59,7 @@ void SourceWidget::paintEvent(QPaintEvent* event) {
 
 	QPainter painter(this);
 
-	//painter.fillRect(this->rect(), QColor(0, 0, 55));
+    painter.fillRect(this->rect(), QColor("#535353"));
 }
 
 void SourceWidget::addButtonClicked() {

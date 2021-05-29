@@ -14,5 +14,5 @@ ScreenWidget::~ScreenWidget() {
 void ScreenWidget::paintEvent(QPaintEvent* event) {
 
 	QPainter painter(this);
-	painter.fillRect(this->rect(), QColor(111, 111, 111));
+	painter.fillRect(this->rect(), QColor("#282828"));
 }
