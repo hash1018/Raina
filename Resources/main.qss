@@ -118,6 +118,7 @@ QComboBox::down-arrow {
 }
 
  QComboBox QAbstractItemView {
+     background:#434343;
      outline: none;
      padding-top: 3px;
 	 padding-bottom: 3px;
