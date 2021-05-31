@@ -4,6 +4,7 @@
 #include "../Base/LanguageManager.h"
 #include "../Chain/RequestStrategyFactory.h"
 #include "../Chain/RequestStrategy.h"
+#include <qpainter.h>
 
 MainWindow::MainWindow()
     : QMainWindow(nullptr) ,Chain(nullptr)
@@ -48,4 +49,11 @@ void MainWindow::updateNotifyEvent(NotifyEvent* event) {
 
     for (int i = 0; i < this->observers.size(); i++)
         this->observers.at(i)->updateNotifyEvent(event);
+}
+
+void MainWindow::paintEvent(QPaintEvent* event) {
+
+    QPainter painter(this);
+
+    painter.fillRect(this->rect(), QColor("#282828"));
 }

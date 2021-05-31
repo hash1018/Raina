@@ -27,15 +27,16 @@ QPushButton:hover {
 QLineEdit {
 
     background: #AFAFAF;
-    border: 1px solid #434343;	
+    border: 1px solid #FFFFFF;	
 	border-radius: 5px;
+    selection-background-color: #12AE79;
     color:white;
 
 }
 
 QLineEdit:disabled {
     background:#434343;
-    border: 1px solid #434343;
+    border: 0px;
 	border-radius: 5px;
     color: #7C7C7C;
 }
@@ -44,19 +45,19 @@ QLineEdit:disabled {
 
 
 QCheckBox::indicator {
-    height: 24px;
-	width: 24px;
+    height: 28px;
+	width: 28px;
 }
-/*
+
 QCheckBox::indicator::unchecked {
 
-    image: url(":/Main/checkBox_unchecked");
+    image: url(":/Main/checkbox-unchecked");
 }
 
 QCheckBox::indicator::checked {
-    image: url(":/Main/checkBox_checked");
+    image: url(":/Main/checkbox-checked");
 }
-*/
+
 
 
 /*    ///////////////////////////////////////////               */ 
@@ -81,27 +82,28 @@ QRadioButton::indicator::checked {
 
 QComboBox {
 
-    background-color: #FFFFFF;
-    border: 1px solid #DEDEDE;
+    background-color: #AFAFAF;
+    border: 1px solid #FFFFFF;
 	border-radius: 5px;
+    color:white;
 }
 
 QComboBox:disabled {
 
-    background:#DEDEDE;
-    border: 1px solid #DEDEDE;
+    background:#434343;
+    border: 1px solid #434343;
 	border-radius: 5px;
 }
 
 QComboBox:hover {
-	background-color: #EAEDEF;
+	/*background-color: #EAEDEF;*/
 }
 
 QComboBox::drop-down {
 
 	subcontrol-origin: padding;
 	subcontrol-position: top right;
-	width: 15px;
+	width: 23px;
 	
 	border-top-right-radius: 3px;
 	border-bottom-right-radius: 3px;
@@ -109,7 +111,7 @@ QComboBox::drop-down {
 }
 
 QComboBox::down-arrow {
-   /* border-image: url(":/Main/arrow_down");*/
+    border-image: url(":/Main/combobox-dropdown");
 	width: 20px;
 	height: 20px;
 
@@ -122,6 +124,7 @@ QComboBox::down-arrow {
      border: 1px solid #DEDEDE;
 	 border-radius: 5px;
      selection-background-color: #12AE79;
+     color:white;
  }
  
 
@@ -131,16 +134,17 @@ QComboBox::down-arrow {
 
 QSpinBox {
     padding-right: 20px;
-    background: #FFFFFF;
-    border: 1px solid #DEDEDE;
+    background: #AFAFAF;
+    border: 1px solid #FFFFFF;
 	border-radius: 5px;
-	selection-background-color: #FFD477;
+	selection-background-color: #12AE79;
+    color:white;
 }
 
 QSpinBox:disabled {
     padding-right: 20px;
-    background:#DEDEDE;
-    border: 1px solid #DEDEDE;
+    background:#434343;
+    border: 1px solid #434343;
 	border-radius: 5px;
 }
 
@@ -156,12 +160,12 @@ QSpinBox::up-button{
 }
 
 QSpinBox::up-button:hover {
-    background-color:#EAEDEF;
+   /* background-color:#EAEDEF;*/
 }
 
 
 QSpinBox::up-arrow {
-   /* border-image: url(":/Main/spinBox_up_arrow");*/
+    border-image: url(":/Main/spinbox-up");
 	width:20px;
 	height:12px;
 }
@@ -185,11 +189,11 @@ QSpinBox::down-button{
 }
 
 QSpinBox::down-button:hover {
-    background-color:#EAEDEF;
+   /* background-color:#EAEDEF;*/
 }
 
 QSpinBox::down-arrow {
- /*   border-image: url(":/Main/spinBox_down_arrow");*/
+    border-image: url(":/Main/spinbox-down");
 	width:20px;
 	height:12px;
 }
@@ -339,6 +343,6 @@ QDockWidget {
 
 QDockWidget::title {
     text-align: center; /* align the text to the left */
-    background: #424242;
+    background-color: #424242;
     padding-left: 5px;
 }

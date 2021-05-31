@@ -20,6 +20,10 @@ public:
 protected:
 	virtual void paintEvent(QPaintEvent* event);
 
+
+private slots:
+	void settingButtonClicked();
+
 };
 
 #endif //_CONTROLWIDGET_H

@@ -6,6 +6,11 @@
         <file alias="remove">Resources/Image/remove.png</file>
         <file alias="setting">Resources/Image/setting.png</file>
         <file alias="logo">Resources/Image/logo.png</file>
+        <file alias="checkbox-checked">Resources/Image/checkbox-checked.png</file>
+        <file alias="checkbox-unchecked">Resources/Image/checkbox-unchecked.png</file>
+        <file alias="spinbox-down">Resources/Image/spinbox-down.png</file>
+        <file alias="spinbox-up">Resources/Image/spinbox-up.png</file>
+        <file alias="combobox-dropdown">Resources/Image/combobox-dropdown.png</file>
     </qresource>
     <qresource prefix="/Qss">
         <file alias="main">Resources/main.qss</file>

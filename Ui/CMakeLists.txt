@@ -34,6 +34,7 @@ set(Ui_SOURCES
     DockWidget/SourceWidget.cpp
     DockWidget/AudioMixerWidget.cpp
     DockWidget/Controlwidget.cpp
+    Dialog/SettingDialog.cpp
    )
 
 set(Ui_HEADERS
@@ -44,6 +45,7 @@ set(Ui_HEADERS
     DockWidget/SourceWidget.h
     DockWidget/AudioMixerWidget.h
     DockWidget/ControlWidget.h
+    Dialog/SettingDialog.h
     )
 
 set(Ui_UI
@@ -53,6 +55,7 @@ set(Ui_UI
     DockWidget/SourceWidget.ui
     DockWidget/AudioMixerWidget.ui
     DockWidget/ControlWidget.ui
+    Dialog/SettingDialog.ui
     )
 
 add_library(Ui

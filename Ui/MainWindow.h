@@ -29,6 +29,10 @@ public:
 
     virtual void request(Request* request);
     void updateNotifyEvent(NotifyEvent* event);
+
+
+protected:
+    virtual void paintEvent(QPaintEvent* event);
 };
 
 
